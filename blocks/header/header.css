@@ -1,7 +1,9 @@
 .header{
-  background-color:blueviolet;
+  background-color:#000000;
   margin:0 auto;
   max-width:880px;
+  padding:45px 0 81px 0;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width:1280px){
