@@ -1,8 +1,5 @@
 .profile__info{
-max-width:336px;
-padding:26px 0 25px 30px;
-box-sizing: border-box;
-display:grid;
-grid-template-columns:max-content 24px;
-gap:16px 18px;
+  display:flex;
+  flex-direction: column;
+  padding:0 0 0 30px;
 }

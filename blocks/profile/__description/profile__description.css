@@ -1,7 +1,10 @@
 .profile__description{
+  margin:0;
   font-size:18px;
   line-height:21.78px;
   font-weight:400;
-  margin:0;
-  color:#ffffff;
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+
 }

@@ -1,10 +1,9 @@
 .profile__edit-button{
-  background-image: url(../../../images/edit-button.svg);
-  background-repeat: no-repeat;
-  width:24px;
-  height:24px;
-  background-color:transparent;
-  box-sizing: border-box;
-  border:none;
-  margin-top:15px;
+width:24px;
+height:24px;
+background-color: seagreen;
+background-image: url(../../../images/edit-button.svg);
+background-color: #000000;
+border:none;
+margin: 0 0 0 18px;
 }
