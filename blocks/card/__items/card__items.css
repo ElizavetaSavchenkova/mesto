@@ -1,6 +1,5 @@
 .card__items{
   max-width:880px;
-
   margin:0 auto;
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -16,7 +15,6 @@
     max-width: calc(17px + (282px + 282px));
     display:grid;
     grid-template-columns:repeat(2, 1fr);
-
     row-gap:20px;
   }
 }
@@ -29,7 +27,6 @@
     grid-template-columns:1fr;
     gap:20px 0;
     justify-items: center;
-
   }
 }
 

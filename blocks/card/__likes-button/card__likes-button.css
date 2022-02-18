@@ -3,4 +3,9 @@
   width:22px;
   height:19px;
   border:0;
+  padding:0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  align-self: flex-end;
 }

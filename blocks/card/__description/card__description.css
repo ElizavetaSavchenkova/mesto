@@ -1,6 +1,5 @@
 .card__description{
   max-width:282px;
-  background-color:crimson;
   display:flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,5 +7,5 @@
   border-radius:0 0 10px 10px;
   box-sizing: border-box;
   background-color: #ffffff;
-
+  margin:0;
 }
