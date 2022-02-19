@@ -2,7 +2,6 @@
   margin:0;
   border:0px;
   width:430px;
-  height:330px;
   box-sizing: border-box;
   border-radius: 10px;
 }
@@ -10,7 +9,5 @@
 @media screen and (max-width:767px){
   .popup__info{
     width:282px;
-    height:322px;
-
   }
 }

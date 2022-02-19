@@ -1,23 +1,21 @@
 .popup__form-info{
-margin:0;
-border:none;
-padding:25px 36px 37px 36px;
-display:flex;
-flex-direction: column;
-height:330px;
-width:430px;
-align-items:center;
-justify-content: space-between;
-background-color:#ffffff;
-border-radius: 10px;
-box-sizing: border-box;
+  margin:0;
+  border:none;
+  padding:34px 36px 37px 36px;
+  display:flex;
+  flex-direction: column;
+  width:430px;
+  align-items:center;
+  justify-content: space-between;
+  background-color:#ffffff;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
 
 @media screen and (max-width:767px){
   .popup__form-info{
     padding:25px 22px 25px 22px;
-    height:322px;
     width:282px;
   }
 }
