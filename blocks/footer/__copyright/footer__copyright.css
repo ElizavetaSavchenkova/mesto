@@ -5,3 +5,13 @@
   font-weight:400;
   margin:0;
 }
+
+@media screen and (max-width:767px){
+  .footer__copyright{
+    color:#545454;
+    font-size:14px;
+    line-height:17px;
+    font-weight:400;
+    margin:0;
+  }
+}

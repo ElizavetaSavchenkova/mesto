@@ -1,4 +1,4 @@
-.card__likes-button{
+.cards__likes-button{
   background: url(../../../images/likes-button.svg);
   width:22px;
   height:19px;
@@ -11,4 +11,13 @@
   align-self: flex-end;
   align-self:center;
   box-sizing:border-box;
+  transition:opacity 1s ease-in;
+  cursor:pointer;
 }
+
+
+.cards__likes-button:hover{
+  opacity:0.5;
+}
+
+

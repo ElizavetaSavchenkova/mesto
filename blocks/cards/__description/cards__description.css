@@ -1,4 +1,4 @@
-.card__description{
+.cards__description{
   max-width:282px;
   display:flex;
   flex-direction: row;
@@ -8,5 +8,4 @@
   background-color: #ffffff;
   margin:0;
   border-radius: 0 0 10px 10px;
-
 }
