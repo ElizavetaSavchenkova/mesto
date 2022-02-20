@@ -11,17 +11,17 @@ const buttonLike = document.querySelector('.card__likes-button');
 const buttonLikeActive = document.querySelector('.button_active');
 
 
-const openPopup = function (){
+const openPopup = function () {
   popupElement.classList.add('popup_is-opened');
   titleInput.value = profileName.textContent;
   subtitleInput.value = profileDescription.textContent;
 };
 
-const closePopup = function(){
+const closePopup = function () {
   popupElement.classList.remove('popup_is-opened');
 };
 
-function formSubmitHandler (evt) {
+function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = titleInput.value;
   profileDescription.textContent = subtitleInput.value;
@@ -29,7 +29,5 @@ function formSubmitHandler (evt) {
 };
 
 popupElementOpen.addEventListener('click', openPopup);
-
 popupCloseButtonElement.addEventListener('click', closePopup);
-
 formElement.addEventListener('submit', formSubmitHandler);
