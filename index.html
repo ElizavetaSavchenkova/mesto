@@ -27,7 +27,7 @@
       </section>
       <section class="cards">
         <ul class="cards__list">
-          <li class="cards__card">
+        <!-- <li class="cards__card">
             <img src="./images/photo-Karachaevsk.jpg" class="cards__image" alt="Карачаевск">
             <div class="cards__description">
               <h2 class="cards__description-title">Карачаевск</h2>
@@ -68,7 +68,7 @@
               <h2 class="cards__description-title">Карачаево-Черкессия</h2>
               <button aria-label="Нравится" class="cards__likes-button" type="button"></button>
             </div>
-          </li>
+          </li>-->
         </ul>
       </section>
     </main>
@@ -88,6 +88,28 @@
         </form>
       </div>
     </div>
+    <div class="popup popup_type_add">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <button class="popup__close-button button" type="button"></button>
+        <form class="popup__info" name="formAddElement">
+          <fieldset class="popup__form-info">
+            <input class="popup__form-input popup__form-input_name_title" id="popup__form-name" type="text" name="" placeholder="Название" required>
+            <input class="popup__form-input popup__form-input_name_subtitle"  id="popup__form-text" type="text"  name="" placeholder="Ссылка на картинку" required>
+            <button class="popup__button-submit" type="submit">Создать</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <template id="cards-template">
+      <li class="cards__card">
+        <img src="" class="cards__image" alt="">
+        <div class="cards__description">
+          <h2 class="cards__description-title"></h2>
+          <button aria-label="Нравится" class="cards__likes-button" type="button" id="cards__likes-button"></button>
+       </div>
+      </li>
+    </template>
   </div>
   <script src="./scripts/index.js"></script>
 </body>

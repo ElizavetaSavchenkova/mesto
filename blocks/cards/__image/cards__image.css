@@ -1,4 +1,6 @@
 .cards__image {
-  width: 100%;
+  max-width:282px;
+  height:282px;
   border-radius: 10px 10px 0 0;
 }
+/* было width 100% без height*/
