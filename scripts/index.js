@@ -73,82 +73,68 @@ const initialCards = [
   }
 ];
 
-//const cards = document.querySelector('.cards__list');
-//const cardsTemplate = document.querySelector('#cards-template').content;
+//6 карточек
 
+const cardsList = document.querySelector('.cards__list');
 
-
-//function renderPic(caption, name) {
- // const cardsPictures = cardsTemplate.querySelector('.cards__card').cloneNode(true);
- // cardsPictures.querySelector('.cards__image').src='link';
-  //cardsPictures.querySelector('.cards__description-title').textContent = 'name';
-  //cards.append(cardsPictures);
-//};
-
-
-//function renderItems(initialCards){
-  //initialCards.forEach(renderPic);
-//}
-
-function addPhotoElement (cap, Links) {
-  const elementTemplate = document.querySelector('#cards-template').content;
-  const photoElement = elementTemplate.cloneNode(true);
-  photoElement.querySelector('.cards__image').src = Links;
-  photoElement.querySelector('.cards__description-title').textContent = cap;
-  const photoElementsList = document.querySelector('.cards__list');
-  photoElementsList.appendChild(photoElement);
-}
+function addPictures (name, link) {
+  const cardsTemplate = document.querySelector('#cards-template').content;
+  const cardsPictures = cardsTemplate.cloneNode(true);
+  cardsPictures.querySelector('.cards__description-title').textContent = name;
+  cardsPictures.querySelector('.cards__image').src = link;
+  cardsList.prepend(cardsPictures);
+};
 
 function addCards (initialCards) {
   initialCards.forEach((item) => {
-    addPhotoElement(item.name, item.link);
+    addPictures(item.name, item.link);
   })
 }
+
 addCards(initialCards);
 
 
+///
+const headingInput = document.querySelector('.popup__form-input_name_heading');
+const linkInput = document.querySelector('.popup__form-input_name_link');
 
-
-const addSubmitHandler = (e) => {
-
-  const newPhotoElementName = document.getElementById('name').value;
-  const newPhotoElementLink = document.getElementById('link').value;
-
-  addPhotoElement(newPhotoElementName, newPhotoElementLink);
-  toggleAddPopup();
+function SubmitHandler (evt) {
+  evt.preventDefault();
+  const name = headingInput.value;
+  const link = linkInput.value;
+  addPictures(name, link);
+  closeAddPopup();
 };
 
-function toggleLikeButton () {
-  likesButton.classList.add('cards__likes-button_active');
-};
+popupAddElement.addEventListener('submit', SubmitHandler);
 
-//const toggleLikeButton = (e) => {
-  //e.target.classList.toggle('cards__likes-button_active');
-//}
-
+//лайки
 const likesButton = document.querySelectorAll('.cards__likes-button');
 console.log(likesButton);
 
+function changeLikesButton (event) {
+  event.target.classList.toggle('cards__likes-button_active');
+};
+
 likesButton.forEach(item => {
-  item.addEventListener('click', toggleLikeButton);
+  item.addEventListener('click', changeLikesButton);
 });
 
-//for (let i = 0; i < initialCards.length; i++){
-  //console.log(initialCards.length);
-//}
 
 
-//var pc = document.getElementById("cards-card");let pic = document.createElement('img');pic.src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg';pc.appendChild(pic);
-//
+//удаление карточки
+const cardsss = document.querySelectorAll('.cards__card');
+const deleteButton = document.querySelector('.cards__delete-button');
 
 
-//const Cards = [];
-//for (let i = 0; i < initialCards.length; i++) {
-  //const listItem = document.createElement('img');
-  //listItem.textContent = initialCards[2];
-  //Cards[2] = listItem;
-//}
+function handleDelete(event){
+  event.target.closest(cardsss);
+  cardsss.remove()
+}
 
-// добавим элементы в DOM с использованием цикла
-//for (let i = 0; i < Cards.length; i++) {
- /// ProCards.append(Cards[2]
+cardsss.forEach(item => {
+  item.addEventListener('click', handleDelete);
+});
+
+
+

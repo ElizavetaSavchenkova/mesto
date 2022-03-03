@@ -2,7 +2,8 @@
   max-width: 880px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(282px, 1fr));
+  grid-template-rows: repeat(auto-fit, 1fr);
   align-items: flex-end;
   gap: 20px 17px;
   padding: 0;

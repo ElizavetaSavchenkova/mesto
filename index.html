@@ -27,48 +27,6 @@
       </section>
       <section class="cards">
         <ul class="cards__list">
-        <!-- <li class="cards__card">
-            <img src="./images/photo-Karachaevsk.jpg" class="cards__image" alt="Карачаевск">
-            <div class="cards__description">
-              <h2 class="cards__description-title">Карачаевск</h2>
-              <button aria-label="Нравится" class="cards__likes-button" type="button"></button>
-           </div>
-          </li>
-         <li class="cards__card">
-            <img src="./images/photo-Elbrus.jpg" class="cards__image" alt="Гора Эльбрус">
-            <div class="cards__description">
-              <h2 class="cards__description-title">Гора Эльбрус</h2>
-              <button  aria-label="Нравится" class="cards__likes-button" type="button"></button>
-            </div>
-          </li>
-          <li class="cards__card">
-            <img src="./images/photo-Dombai.jpg" class="cards__image" alt="Домбай">
-            <div class="cards__description">
-              <h2 class="cards__description-title">Домбай</h2>
-              <button aria-label="Нравится" class="cards__likes-button" type="button"></button>
-            </div>
-          </li>
-          <li class="cards__card">
-            <img src="./images/photo-Elbrus.jpg" class="cards__image" alt="Гора Эльбрус">
-            <div class="cards__description">
-              <h2 class="cards__description-title">Гора Эльбрус</h2>
-              <button aria-label="Нравится" class="cards__likes-button" type="button"></button>
-            </div>
-          </li>
-          <li class="cards__card">
-            <img src="./images/photo-Dombai.jpg" class="cards__image" alt="Домбай">
-            <div class="cards__description">
-              <h2 class="cards__description-title">Домбай</h2>
-              <button aria-label="Нравится" class="cards__likes-button" type="button"></button>
-            </div>
-          </li>
-          <li class="cards__card">
-            <img src="./images/photo-Karachaevsk.jpg" class="cards__image" alt="Карачаево-Черкессия">
-            <div class="cards__description">
-              <h2 class="cards__description-title">Карачаево-Черкессия</h2>
-              <button aria-label="Нравится" class="cards__likes-button" type="button"></button>
-            </div>
-          </li>-->
         </ul>
       </section>
     </main>
@@ -94,8 +52,8 @@
         <button class="popup__close-button button" type="button"></button>
         <form class="popup__info" name="formAddElement">
           <fieldset class="popup__form-info">
-            <input class="popup__form-input popup__form-input_name_title" id="popup__form-name" type="text" name="" placeholder="Название" required>
-            <input class="popup__form-input popup__form-input_name_subtitle"  id="popup__form-text" type="text"  name="" placeholder="Ссылка на картинку" required>
+            <input class="popup__form-input popup__form-input_name_heading" id="popup__form-heading" type="text" name="headingInput" placeholder="Название" required>
+            <input class="popup__form-input popup__form-input_name_link"  id="popup__form-link" type="text"  name="linkInput" placeholder="Ссылка на картинку" required>
             <button class="popup__button-submit" type="submit">Создать</button>
           </fieldset>
         </form>
@@ -107,6 +65,7 @@
         <div class="cards__description">
           <h2 class="cards__description-title"></h2>
           <button aria-label="Нравится" class="cards__likes-button" type="button" id="cards__likes-button"></button>
+          <button aria-label="Удалить" class="cards__delete-button button" type="button" id="cards__delete-button"></button>
        </div>
       </li>
     </template>
