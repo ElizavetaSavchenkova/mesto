@@ -74,15 +74,40 @@ const initialCards = [
 ];
 
 //6 карточек
+const popupPictureElement = document.querySelector('.popup_type_picture');
 
+const popupPicElementClose = popupPictureElement.querySelector('.popup__close-button');
+
+//
 const cardsList = document.querySelector('.cards__list');
+
 
 function addPictures (name, link) {
   const cardsTemplate = document.querySelector('#cards-template').content;
   const cardsPictures = cardsTemplate.cloneNode(true);
   cardsPictures.querySelector('.cards__description-title').textContent = name;
   cardsPictures.querySelector('.cards__image').src = link;
+  setEventListeners(cardsPictures);
+  setEvent(cardsPictures)
   cardsList.prepend(cardsPictures);
+  console.log(cardsPictures);
+
+
+
+  const picture = document.querySelector(".popup__picture");
+  const textPicture = document.querySelector(".popup__picture-text");
+  const openf = document.querySelectorAll('.cards__image');
+
+  const openPicPopup = function () {
+    popupPictureElement.classList.add('popup_is-opened');
+    picture.src = link;
+    textPicture.textContent = name;
+  };
+
+  openf.forEach(item => {
+    item.addEventListener('click', openPicPopup);
+  });
+
 };
 
 function addCards (initialCards) {
@@ -108,33 +133,86 @@ function SubmitHandler (evt) {
 
 popupAddElement.addEventListener('submit', SubmitHandler);
 
-//лайки
-const likesButton = document.querySelectorAll('.cards__likes-button');
-console.log(likesButton);
-
-function changeLikesButton (event) {
-  event.target.classList.toggle('cards__likes-button_active');
-};
-
-likesButton.forEach(item => {
-  item.addEventListener('click', changeLikesButton);
-});
 
 
 
 //удаление карточки
-const cardsss = document.querySelectorAll('.cards__card');
-const deleteButton = document.querySelector('.cards__delete-button');
+const card = document.querySelectorAll('.cards__card');
+//const deleteButton = document.querySelector('.cards__delete-button');
+
+function setEventListeners(cardsPictures){
+  cardsPictures.querySelector('.cards__delete-button').addEventListener('click', handleDelete)
+
+};
+
+function handleDelete (event) {
+  const cardsPictures = event.target.closest('.cards__card')
+  cardsPictures.remove()
+};
+
+//открытие попапа картинки
 
 
-function handleDelete(event){
-  event.target.closest(cardsss);
-  cardsss.remove()
+
+
+//лайки
+function setEvent(cardsPictures){
+  cardsPictures.querySelector('.cards__likes-button').addEventListener('click',changeLikesButton)
 }
 
-cardsss.forEach(item => {
-  item.addEventListener('click', handleDelete);
-});
+function changeLikesButton (event) {
+  const cardsPictures = event.target.closest('.cards__likes-button')
+  cardsPictures.classList.toggle('cards__likes-button_active')
+};
+
+//const likesButton = document.querySelectorAll('.cards__likes-button');
+//console.log(likesButton);
+
+//likesButton.forEach(item => {
+ // item.addEventListener('click', changeLikesButton);
+//});
+
+// changeLikesButton (event) {
+  //event.target.classList.toggle('cards__likes-button_active');
+//};
+
+
+
+
+
+
+
+
+const closePicPopup = function () {
+  popupPictureElement.classList.remove('popup_is-opened');
+};
+
+
+popupPicElementClose.addEventListener('click', closePicPopup);
+
+
+
+
+
+//function togglePicturePopup(event) {
+  //event.target.classList.toggle('popup_is-opened');
+//};
+
+
+
+
+
+
+
+
+//function handleDelete(event){
+  //event.target.closest(cardsss);
+//cardsss.remove()
+//}//
+
+//cardsss.forEach(item => {
+  //item.addEventListener('click', handleDelete);
+//});
 
 
 
