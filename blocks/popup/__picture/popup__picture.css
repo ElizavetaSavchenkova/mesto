@@ -1,4 +1,13 @@
 .popup__picture{
-  height:75vh;
-  width:75vh;
+  display: block;
+  min-width: 282px;
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
 }
+  /*height: calc(100% - 15px);
+  margin: 0;
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  padding: 0;

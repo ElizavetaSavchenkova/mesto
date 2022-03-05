@@ -1,9 +1,6 @@
-.popup__picture-container {
-  width: 75vw;
-  height: 75vh;
-  margin: 0 auto;
-  position: relative;
-  align-self: center;
-  background-color: #ffffff;
-  box-sizing: border-box;
+.popup__Picture-container{
+  width:100px;
+  height:200px;
+  background-color: aqua;
+  position:relative;
 }
