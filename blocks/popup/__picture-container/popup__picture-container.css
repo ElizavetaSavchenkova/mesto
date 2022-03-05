@@ -1,6 +1,6 @@
-.popup__Picture-container{
-  width:100px;
-  height:200px;
-  background-color: aqua;
-  position:relative;
+.popup__picture-container{
+  position: relative;
+  align-self:center;
+  margin: 0 auto;
+
 }

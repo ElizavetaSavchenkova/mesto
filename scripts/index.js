@@ -6,7 +6,7 @@ const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const titleInput = formElement.querySelector('.popup__form-input_name_title');
 const subtitleInput = formElement.querySelector('.popup__form-input_name_subtitle');
-const popupAddElement = document.querySelector('.popup_type_add');
+const popupAddElement = document.querySelector('#popup_type_add');
 const popupAddElementOpen = document.querySelector('.profile__add-button');
 const popupAddElementClose = popupAddElement.querySelector('.popup__close-button')
 
@@ -206,7 +206,6 @@ function changeLikesButton (event) {
 const closePicPopup = function () {
   popupPictureElement.classList.remove('popup_is-opened');
 };
-
 
 popupPicElementClose.addEventListener('click', closePicPopup);
 
