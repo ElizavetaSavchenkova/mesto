@@ -27,7 +27,6 @@ const closeEditPopup = () => closePopup(popupEditElement);
 const closeAddPopup = () => closePopup(popupAddElement);
 const closePicPopup = () => closePopup(popupPictureElement);
 
-
 function openPopup(popupElement) {
   popupElement.classList.add('popup_is-opened');
 };
