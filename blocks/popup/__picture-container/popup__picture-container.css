@@ -1,6 +1,5 @@
-.popup__picture-container{
-  position: relative;
-  align-self:center;
+.popup__picture-container {
   margin: 0 auto;
-
+  position: relative;
+  align-self: center;
 }

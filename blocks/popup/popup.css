@@ -4,10 +4,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  opacity:0;
+  opacity: 0;
   background-color: rgba(0, 0, 0, .5);
   visibility: hidden;
-  transition: visibility .7s, opacity .5s linear;
-  display:flex;
-
+  transition: visibility 0.7s, opacity 0.6s linear;
+  display: flex;
 }

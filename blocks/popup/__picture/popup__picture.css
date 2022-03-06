@@ -1,13 +1,6 @@
-.popup__picture{
-  display: block;
-  min-width: 282px;
+.popup__picture {
   max-width: 75vw;
   max-height: 75vh;
+  min-width: 282px;
   object-fit: cover;
 }
-  /*height: calc(100% - 15px);
-  margin: 0;
-  max-width: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  padding: 0;
