@@ -62,7 +62,7 @@ function addPictures(card) {
 
 initialCards.forEach((card) => {
   const cardElement = addPictures(card);
-  cardsList.append(cardElement);
+  cardsList.prepend(cardElement);
 });
 
 function renderCards(card) {
