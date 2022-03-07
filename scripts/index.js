@@ -16,7 +16,6 @@ const popupAddCloseButtonElement = popupAddElement.querySelector('.popup__close-
 const popupPictureElement = document.querySelector('.popup_type_picture');
 const popupPicCloseButtonElement = popupPictureElement.querySelector('.popup__close-button');
 const cardsList = document.querySelector('.cards__list');
-const cardsTemplate = document.querySelector('#cards-template').content;
 const popupPicFigure = popupPictureElement.querySelector('.popup__figure');
 const popupCardPicture = popupPictureElement.querySelector('.popup__picture');
 const popupTextPicture = popupPictureElement.querySelector('.popup__picture-text');
@@ -47,40 +46,44 @@ function editFormSubmitHandler(evt) {
   closePopup(popupEditElement)
 };
 
-function addPictures(name, link) {
+function addPictures(card) {
+  const cardsTemplate = document.querySelector('#cards-template').content;
   const addedCard = cardsTemplate.cloneNode(true);
   const cardPic = addedCard.querySelector('.cards__image');
   const cardTitle = addedCard.querySelector('.cards__description-title');
-  cardPic.src = link;
-  cardPic.alt = name;
-  cardTitle.textContent = name;
+  cardPic.src = card.link;
+  cardPic.alt = card.name;
+  cardTitle.textContent = card.name;
   setEventListenersDeleteButton(addedCard);
-  setEventListenersLikesButton(addedCard)
-  cardsList.prepend(addedCard);
-  const zoomImage = (evt) => {
-    popupCardPicture.src = evt.target.src;
-    popupCardPicture.alt = evt.target.alt;
-    popupTextPicture.textContent = name;
-    openPopup(popupPictureElement);
-  };
+  setEventListenersLikesButton(addedCard);
   cardPic.addEventListener('click', zoomImage);
-  return addPictures;
+  return addedCard;
 };
 
-function addCards(initialCards) {
-  initialCards.forEach((item) => {
-    addPictures(item.name, item.link);
-  });
-};
+initialCards.forEach((card) => {
+  const cardElement = addPictures(card);
+  cardsList.append(cardElement);
+});
 
-addCards(initialCards);
+function renderCards(card) {
+  const cardElement = addPictures(card);
+  cardsList.prepend(cardElement);
+};
 
 function addDescriptionCardSubmitHandler(evt) {
   evt.preventDefault();
-  const name = headingInput.value;
-  const link = linkInput.value;
-  addPictures(name, link);
+  renderCards({
+    link: linkInput.value,
+    name: headingInput.value
+  });
   closePopup(popupAddElement);
+};
+
+function zoomImage(evt) {
+  popupCardPicture.src = evt.target.src;
+  popupCardPicture.alt = evt.target.alt;
+  popupTextPicture.textContent = evt.target.alt;
+  openPopup(popupPictureElement);
 };
 
 function setEventListenersDeleteButton(addedCard) {
