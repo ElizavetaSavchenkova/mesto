@@ -48,13 +48,4 @@
 @import url(../blocks/popup/__picture-text/popup__picture-text.css);
 
 
-@import url(../blocks/popup/__info/__element/popup__info_element_edit.css);
-
-@import url(../blocks/popup/__form-input-type-error/popup__form-input-type-error.css);
-
-@import url(../blocks/popup/__form-input-error/popup__form-input-error.css);
-@import url(../blocks/popup/__form-input-error/_active/popup__form-input-error_active.css);
-
-@import url(../blocks/popup/__button-submit/_inactive/popup__button-submit_inactive.css);
-
 
