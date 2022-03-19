@@ -43,13 +43,23 @@ function closePopup(popup) {
 
 const closePopupButtonEsc = (event) => {
   if (event.key === 'Escape') {
-    const popupList = Array.from(allPopups);
-    popupList.forEach((popup) => {
+    allPopups.forEach((popup) => {
       popup.classList.contains('popup_is-opened');
       closePopup(popup);
     });
   };
 };
+
+const closePopUpByClickOnOverlay = (event) => {
+  if (event.target !== event.currentTarget) {
+    return;
+  };
+  closePopup(event.target);
+};
+
+allPopups.forEach((popup) => {
+  popup.addEventListener('mousedown', closePopUpByClickOnOverlay);
+});
 
 
 const addProfileInfo = function () {
