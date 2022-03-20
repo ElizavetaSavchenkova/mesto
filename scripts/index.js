@@ -2,20 +2,16 @@ const allPopups = document.querySelectorAll('.popup');
 const popupElement = document.querySelector('.popup')
 const popupEditElement = document.querySelector('.popup_type_profile');
 const popupEditOpenButtonElement = document.querySelector('.profile__edit-button');
-
 const popupFormEditElement = popupEditElement.querySelector('.popup__info_element_edit');
 const titleInput = popupFormEditElement.querySelector('.popup__form-input_name_title');
 const subtitleInput = popupFormEditElement.querySelector('.popup__form-input_name_subtitle');
-
 const popupAddElement = document.querySelector('.popup_type_add');
 const popupFormAddElement = popupAddElement.querySelector('.popup__info_element_add');
 const headingInput = popupFormAddElement.querySelector('.popup__form-input_name_heading');
 const linkInput = popupFormAddElement.querySelector('.popup__form-input_name_link');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-
 const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
-
 const popupEditCloseButtonElement = popupEditElement.querySelector('.popup__close-button');
 const popupAddCloseButtonElement = popupAddElement.querySelector('.popup__close-button');
 const popupPictureElement = document.querySelector('.popup_type_picture');
@@ -60,7 +56,6 @@ const closePopUpByClickOnOverlay = (event) => {
 allPopups.forEach((popup) => {
   popup.addEventListener('mousedown', closePopUpByClickOnOverlay);
 });
-
 
 const addProfileInfo = function () {
   titleInput.value = profileName.textContent;
