@@ -2,6 +2,10 @@ const getErrorElement = (inputElement) => {
   return inputElement.closest('.popup__label').querySelector('.popup__form-input-error');
 };
 
+//const getErrorElement = (inputElement, labelSelector, errorClass) => {
+  //return inputElement.closest(labelSelector).querySelector(errorClass);
+//};
+
 const showError = (formElement, inputElement, errorMessage) => {
   inputElement.classList.add('popup__form-input-type-error');
   const errorElement = getErrorElement(inputElement, formElement);
@@ -25,14 +29,14 @@ const checkInputValidity = (formElement, inputElement, errorClass, inputErrorCla
   };
 };
 
-const toggleButtonState = (inputList, submitButtonElement) => {
+const toggleButtonState = (inputList, submitButtonElement, inactiveButtonClass) => {
   const inputElements = Array.from(inputList)
   const hasInvalidInput = inputElements.some((inputElement) => !inputElement.validity.valid);
   if (hasInvalidInput) {
-    submitButtonElement.classList.add('popup__button-submit_inactive');
+    submitButtonElement.classList.add(inactiveButtonClass);
     submitButtonElement.setAttribute('disabled', true);
   } else {
-    submitButtonElement.classList.remove('popup__button-submit_inactive');
+    submitButtonElement.classList.remove(inactiveButtonClass);
     submitButtonElement.removeAttribute('disabled');
   };
 };
@@ -49,7 +53,7 @@ const setEventListeners = (formElement, inputSelector, errorClass, inputErrorCla
     inputElement.addEventListener('input', handleInput);
   };
 
-  toggleButtonState(inputList, submitButtonElement);
+  toggleButtonState(inputList, submitButtonElement, inactiveButtonClass);
 
   inputList.forEach(inputListIterator);
 };
@@ -70,8 +74,8 @@ enableValidation({
   formSelector: '.popup__info',
   inputSelector: '.popup__form-input',
   submitButtonSelector: '.popup__button-submit',
-  inactiveButtonClass: 'popup__button_submit_inactive',
-  inputErrorClass: 'popup__form-input_type_error',
+  inactiveButtonClass: 'popup__button-submit_inactive',
+  inputErrorClass: 'popup__form-input-type-error',
   errorClass: 'popup__form-input-error',
 });
 
