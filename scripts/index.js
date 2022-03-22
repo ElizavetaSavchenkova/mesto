@@ -23,17 +23,6 @@ const popupTextPicture = popupPictureElement.querySelector('.popup__picture-text
 function openPopup(popup) {
   popup.classList.add('popup_is-opened');
   document.addEventListener('keydown', closePopupButtonEsc);
-
-  enableValidation({
-    formSelector: '.popup__info',
-    inputSelector: '.popup__form-input',
-    submitButtonSelector: '.popup__button-submit',
-    inactiveButtonClass: 'popup__button_submit_inactive',
-    inputErrorClass: 'popup__form-input_type_error',
-    errorClass: 'popup__form-input-error',
-    label:'popup__label'
-  });
-
 };
 
 function closePopup(popup) {
