@@ -95,8 +95,8 @@ function renderCards(card) {
 };
 
 function cleanAddPopup() {
-  headingInput.value = ' ';
-  linkInput.value = ' ';
+  headingInput.value = '';
+  linkInput.value = '';
 };
 
 function addDescriptionCardSubmitHandler(evt) {
@@ -105,8 +105,8 @@ function addDescriptionCardSubmitHandler(evt) {
     link: linkInput.value,
     name: headingInput.value
   });
+  cleanAddPopup(popupFormAddElement);
   closePopup(popupAddElement);
-  cleanAddPopup();
 };
 
 function zoomImage(evt) {
