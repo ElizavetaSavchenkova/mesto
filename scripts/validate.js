@@ -2,9 +2,6 @@ const getErrorElement = (inputElement) => {
   return inputElement.closest('.popup__label').querySelector('.popup__form-input-error');
 };
 
-//const getErrorElement = (inputElement, labelSelector, errorClass) => {
-  //return inputElement.closest(labelSelector).querySelector(errorClass);
-//};
 
 const showError = (formElement, inputElement, errorMessage) => {
   inputElement.classList.add('popup__form-input-type-error');
