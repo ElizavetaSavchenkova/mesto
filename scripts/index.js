@@ -19,6 +19,7 @@ const cardsList = document.querySelector('.cards__list');
 const popupPicFigure = popupPictureElement.querySelector('.popup__figure');
 const popupCardPicture = popupPictureElement.querySelector('.popup__picture');
 const popupTextPicture = popupPictureElement.querySelector('.popup__picture-text');
+const submitButton = popupAddElement.querySelector('.popup__button-submit');
 
 function openPopup(popup) {
   popup.classList.add('popup_is-opened');
@@ -83,9 +84,17 @@ function renderCards(card) {
   cardsList.prepend(cardElement);
 };
 
+function deactivateSubmitButton() {
+  submitButton.setAttribute('disabled', true);
+  submitButton.classList.add('popup__button-submit_inactive');
+};
+
 function cleanAddPopup() {
   headingInput.value = '';
   linkInput.value = '';
+  if (headingInput.value == 0 || linkInput.value == 0) {
+    deactivateSubmitButton();
+  };
 };
 
 function addDescriptionCardSubmitHandler(evt) {
