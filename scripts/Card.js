@@ -6,8 +6,6 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardsTemplate = document.querySelector(cardTemplateSelector).content;
-    //this._addedCard = this._cardsTemplate.cloneNode(true);
-    //this._cardPic = this._addedCard.querySelector('.cards__image');
   }
 
   _handleDelete(event) {

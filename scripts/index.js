@@ -72,13 +72,6 @@ function deactivateSubmitButton() {
   submitButton.classList.add('popup__button-submit_inactive');
 };
 
-function cleanAddPopup() {
-  headingInput.value = '';
-  linkInput.value = '';
-  if (headingInput.value == 0 || linkInput.value == 0) {
-    deactivateSubmitButton();
-  };
-};
 
 function addDescriptionCardSubmitHandler(evt) {
   evt.preventDefault();
@@ -86,7 +79,6 @@ function addDescriptionCardSubmitHandler(evt) {
     link: linkInput.value,
     name: headingInput.value
   });
-  cleanAddPopup(popupFormAddElement);
   closePopup(popupAddElement);
 };
 
