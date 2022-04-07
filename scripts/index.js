@@ -2,7 +2,6 @@ import initialCards from './initialCards.js';
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
 import { openPopup, closePopup, closePopUpByClickOnOverlay } from './utils.js';
-import { popupPictureElement } from './constants.js'
 
 const allPopups = document.querySelectorAll('.popup');
 const popupEditElement = document.querySelector('.popup_type_profile');
@@ -15,13 +14,16 @@ const popupFormAddElement = popupAddElement.querySelector('.popup__info_element_
 const headingInput = popupFormAddElement.querySelector('.popup__form-input_name_heading');
 const linkInput = popupFormAddElement.querySelector('.popup__form-input_name_link');
 const profileName = document.querySelector('.profile__name');
+const popupPictureElement = document.querySelector('.popup_type_picture');
+const popupCardPicture = popupPictureElement.querySelector('.popup__picture');
+const popupTextPicture = popupPictureElement.querySelector('.popup__picture-text');
 const profileDescription = document.querySelector('.profile__description');
 const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
 const popupEditCloseButtonElement = popupEditElement.querySelector('.popup__close-button');
 const popupAddCloseButtonElement = popupAddElement.querySelector('.popup__close-button');
+const submitButton = popupAddElement.querySelector('.popup__button-submit');
 const popupPicCloseButtonElement = popupPictureElement.querySelector('.popup__close-button');
 const cardsList = document.querySelector('.cards__list');
-const submitButton = popupAddElement.querySelector('.popup__button-submit');
 
 const settings = {
   formSelector: '.popup__info',
@@ -56,10 +58,13 @@ function editFormSubmitHandler(evt) {
   closePopup(popupEditElement)
 };
 
+function createCard(card) {
+  const cardElement = new Card(card, '#cards-template', handleZoomImage);
+  return cardElement.constructCard();
+};
+
 function renderCards(data) {
-  const card = new Card(data, '#cards-template');
-  console.log(data)
-  const cardElement = card.createCard()
+  const cardElement = createCard(data)
   cardsList.prepend(cardElement);
 };
 
@@ -67,11 +72,12 @@ initialCards.forEach((card) => {
   renderCards(card);
 });
 
-function deactivateSubmitButton() {
-  submitButton.setAttribute('disabled', true);
-  submitButton.classList.add('popup__button-submit_inactive');
+function handleZoomImage(name, link) {
+  popupCardPicture.src = link;
+  popupCardPicture.alt = name;
+  popupTextPicture.textContent = name;
+  openPopup(popupPictureElement);
 };
-
 
 function addDescriptionCardSubmitHandler(evt) {
   evt.preventDefault();
@@ -84,19 +90,21 @@ function addDescriptionCardSubmitHandler(evt) {
 
 popupEditOpenButtonElement.addEventListener('click', () => {
   openPopup(popupEditElement);
+  popupEditElementvalidation.resetErrors();
   addProfileInfo();
-  deactivateSubmitButton()
+
 });
 
 popupAddOpenButtonElement.addEventListener('click', () => {
-  deactivateSubmitButton();
   openPopup(popupAddElement);
   popupAddElementvalidation.resetErrors();
+  popupAddElementvalidation.disableButton()
 });
 
-popupEditCloseButtonElement.addEventListener('click', () => {
-  closePopup(popupEditElement);
-});
+popupEditCloseButtonElement.addEventListener('click',
+  () => {
+    closePopup(popupEditElement);
+  });
 
 popupAddCloseButtonElement.addEventListener('click', () => {
   closePopup(popupAddElement);
@@ -108,5 +116,3 @@ popupPicCloseButtonElement.addEventListener('click', () => {
 
 popupFormEditElement.addEventListener('submit', editFormSubmitHandler);
 popupAddElement.addEventListener('submit', addDescriptionCardSubmitHandler);
-
-

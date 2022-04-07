@@ -1,11 +1,9 @@
-import {popupPictureElement, popupCardPicture, popupTextPicture} from './constants.js'
-import {openPopup} from './utils.js';
-
 export default class Card {
-  constructor(data, cardTemplateSelector) {
+  constructor(data, cardTemplateSelector, handleZoomImage) {
     this._name = data.name;
     this._link = data.link;
     this._cardsTemplate = document.querySelector(cardTemplateSelector).content;
+    this._handleZoomImage = handleZoomImage;
   }
 
   _handleDelete(event) {
@@ -14,27 +12,20 @@ export default class Card {
   };
 
   _changeLikesButton(event) {
-    const addedCard = event.target.closest('.cards__likes-button');
-    addedCard.classList.toggle('cards__likes-button_active');
+    event.target.classList.toggle('cards__likes-button_active');
   };
 
   _setEventListeners() {
-    this._addedCard.querySelector('.cards__delete-button').addEventListener('click', this._handleDelete);
-    this._addedCard.querySelector('.cards__likes-button').addEventListener('click', this._changeLikesButton);
-    this._cardPic.addEventListener('click', this._zoomImage);
+    this._deleteButton.addEventListener('click', this._handleDelete);
+    this._likeButton.addEventListener('click', this._changeLikesButton);
+    this._cardPic.addEventListener('click', () => {
+      this._handleZoomImage(this._name, this._link)
+    });
   };
 
-  _zoomImage(evt) {
-    popupCardPicture.src = evt.target.src;
-    popupCardPicture.alt = evt.target.alt;
-    popupTextPicture.textContent = evt.target.alt;
-    openPopup(popupPictureElement);
-  };
-
-  createCard() {
+  constructCard() {
     this._addedCard = this._cardsTemplate.cloneNode(true);
     this._cardPic = this._addedCard.querySelector('.cards__image');
-    console.log(this._cardPic)
     this._cardTitle = this._addedCard.querySelector('.cards__description-title');
     this._cardPic.src = this._link;
     this._cardPic.alt = this._name;
