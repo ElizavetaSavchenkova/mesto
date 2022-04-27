@@ -7,16 +7,8 @@
   border-bottom: 1px solid #000000;
   padding: 0 0 10px 0;
   box-sizing: border-box;
+  outline: 0;
 }
-
-/*.popup__form-input:last-of-type {
-  margin-top: 25px;
-}
-*/
-.popup__form-input:focus {
-  background-color: rgb(137, 250, 158);
-}
-
 
 @media screen and (max-width:767px) {
   .popup__form-input {

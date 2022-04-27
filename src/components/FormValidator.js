@@ -14,7 +14,6 @@ export default class FormValidator {
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._settings.errorClass);
     inputElement.classList.add(this._settings.inputErrorClass);
-    console.log(errorElement)
   };
 
   _hideError(inputElement) {
@@ -56,17 +55,11 @@ export default class FormValidator {
   };
 
   resetErrors() {
-    this._form.reset();
     this._inputList.forEach((inputElement) => {
       this._hideError(inputElement)
     });
+    this._toggleButtonState();
   };
-
-  disableButton() {
-    this._inputList.forEach((inputElement) => {
-      this._toggleButtonState(inputElement)
-    });
-  }
 
   enableValidation() {
     this._form.addEventListener('submit', (e) => e.preventDefault());

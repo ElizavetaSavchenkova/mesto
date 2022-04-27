@@ -15,6 +15,5 @@ export default class UserInfo {
   setUserInfo(data) {
     this._profileName.textContent = data.titleInput;
     this._profileDescription.textContent = data.subtitleInput;
-    console.log(data.titleInput)
   };
 };

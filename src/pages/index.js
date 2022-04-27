@@ -59,12 +59,12 @@ popupEditOpenButtonElement.addEventListener('click', () => {
   const inputValues = userInformation.getUserInfo();
   titleInput.value = inputValues.name;
   subtitleInput.value = inputValues.about;
+  popupEditElementvalidation.resetErrors();
   popupEditProfile.open();
 });
 
 popupAddOpenButtonElement.addEventListener('click', () => {
   popupAddCard.open();
   popupAddElementvalidation.resetErrors();
-  popupAddElementvalidation.disableButton()
 });
 
