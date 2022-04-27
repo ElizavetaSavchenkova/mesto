@@ -7,6 +7,8 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import { settings, popupEditElement, popupAddElement, popupFormEditElement, popupFormAddElement, titleInput, subtitleInput, headingInput, linkInput, profileName, profileDescription, popupEditOpenButtonElement, popupAddOpenButtonElement } from '../utils/constants.js';
 
+import '../pages/index.css';
+
 const popupEditElementvalidation = new FormValidator(settings, popupFormEditElement);
 popupEditElementvalidation.enableValidation();
 const popupAddElementvalidation = new FormValidator(settings, popupFormAddElement);

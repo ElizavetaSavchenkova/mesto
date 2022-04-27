@@ -11,11 +11,6 @@ export const profileDescription = document.querySelector('.profile__description'
 export const popupEditOpenButtonElement = document.querySelector('.profile__edit-button');
 export const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
 
-//export const profileData = {
-  //profileNameSelector: '.profile__name',
-  //profileDescriptionSelector: '.profile__description',
-//};
-
 export const settings = {
   formSelector: '.popup__info',
   inputSelector: '.popup__form-input',
