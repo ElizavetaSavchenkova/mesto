@@ -21,3 +21,11 @@ export const settings = {
   labelSelector: '.popup__label',
   errorInput: '.popup__form-input-error',
 };
+
+//export const apiInfo = {
+  //baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-40',
+  //headers: {
+    //authorization: '',
+    //'Content-Type': 'application/json'
+    //},
+//};

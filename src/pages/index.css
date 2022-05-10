@@ -52,3 +52,6 @@
 @import url(../blocks/popup/__form-input-error/_active/popup__form-input-error_active.css);
 @import url(../blocks/popup/__button-submit/_inactive/popup__button-submit_inactive.css);
 @import url(../blocks/popup/__label/popup__label.css);
+
+@import url(../blocks/cards/__likes-number/cards__likes-number.css);
+@import url(../blocks/cards/__section-likes/cards__section-likes.css);
