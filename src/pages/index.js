@@ -37,10 +37,10 @@ function createCard(card) {
   return cardElement.constructCard();
 };
 
-//function renderCards(data) {
-  //const cardElement = createCard(data);
-  //cardsList.addItem(cardElement);
-//};
+function renderCards(data) {
+  const cardElement = createCard(data);
+  cardsList.addItem(cardElement);
+};
 
 function handleZoomImage(name, link) {
   popupImage.open(name, link);
@@ -60,74 +60,20 @@ api.getAllCards()
   }, '.cards__list');
     cardsList.renderItems();
 })
+
+//старая рабочая фцнкция
+
 //const cardsList = new Section({ items: initialCards, renderer: renderCards }, '.cards__list');
 //cardsList.renderItems();
 
 
 
-//const cardsList  = new Section({
-  //renderer: card => {
-   // const cardElement = createCard(card);
-    //cardsList.addItem(cardElement);
-    //console.log(cardElement)
-  //}
-//}, '.cards__list');
 
-//const cards = api.getAllCards();
-//cards.then((data) => {
-  //console.log(data)
-  //cardsList.renderItems()
-//});
+//отредактировать профиль
 
-
-//api.getAllCards().then((cards) => {
-  //generateInitialCards(cards);
-  //}
-//);
-
-// Функция генерации изначальных карточек
-//const generateInitialCards = (cards) => {
-  //const cardsList = new Section({
-    //items: cards,
-    //renderer: (item) => {
-      //const cardEl = new Card (cards, '#cards-template', handleZoomImage)
-      //return cardEl.constructCard();
-      //cardsList.addItem(cardElement);
-    //}
-  //}, '.cards__list');
-  //cardsList.renderItems();
-
-//}
-
-  //.catch((err) => {
-    //console.log(err);
-  //})
-
-
-//api.getAllCards().
-//then((data) => {
-  //constructCard(data);
- // }
-//);
-
-
-//api.getInitialCards()
-//.then((data) => {
- // defaultCardList.renderItems(data, 'initial');
-//})
-
-
-//api.getAllCards()
-  //.then((res) => {
-   // cardsList.renderItems(res);
-  //}).catch((err) => {
-    //console.log(err);
-  //})
 
 const popupEditProfile = new PopupWithForm('.popup_type_profile', editFormSubmitHandler);
 popupEditProfile.setEventListeners()
-
-//отредактировать профиль
 
 function editFormSubmitHandler (data) {
   //const { name, about } = data;
@@ -138,11 +84,12 @@ function editFormSubmitHandler (data) {
       popupEditProfile.close();
 
     })
-    .catch((err) => console.log(`Ошибка: ${err}`))
+    .catch((err) => console.log(`Указать ошибку: ${err}`))
     //.finally(() => {
       //popupEditProfile.showLoading();
     //});
 };
+
 
 
 
@@ -166,10 +113,9 @@ function addDescriptionCardSubmitHandler(data){
   console.log(data)
   //вызов addCard из api с датой
   api.addCard(data.headingInput, data.linkInput)
+  //console.log(data.headingInput, data.linkInput)
   .then((data) => {
-    //console.log(data.headingInput)
-    const cardElement = createCard(data);
-    cardsList.addItem(cardElement);
+    renderCards(data)
   })
 }
 
@@ -193,17 +139,6 @@ function addDescriptionCardSubmitHandler(data){
  //api.addCard(data.name, data.link)
   //popupAddCard.close();
 //}
-
-//api.addNewCard(item)  //добавить карточку на сервер
-//.then((result) => {
- // const cardsSection = document.querySelector('.cards__list');
-  //cardsSection.prepend(renderCard(result, userId)); //добавить карточку в разметку
-//})
-//.finally(() => {
- // popupAdd.close();
- // saveCard.textContent = saveCardDefaultText;
-//})
-//},
 
 
 
