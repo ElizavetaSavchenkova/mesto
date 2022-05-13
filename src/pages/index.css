@@ -55,3 +55,9 @@
 
 @import url(../blocks/cards/__likes-number/cards__likes-number.css);
 @import url(../blocks/cards/__section-likes/cards__section-likes.css);
+
+@import url(../blocks/popup/__info/__element/popup__info_element_delete.css);
+@import url(../blocks/popup/_type/popup_type_delete.css);
+@import url(../blocks/popup/__title/_delete/popup__title_delete.css);
+
+@import url(../blocks/popup/_type/popup__type_avatar.css);

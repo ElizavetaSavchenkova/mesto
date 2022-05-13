@@ -2,6 +2,9 @@ export default class UserInfo {
   constructor({ profileNameSelector, profileDescriptionSelector }) {
     this._profileName = document.querySelector(profileNameSelector)
     this._profileDescription = document.querySelector(profileDescriptionSelector);
+    ////
+    //this._profileAvatar = document.querySelector(profileAvatarSelector );
+    //this._id = userId;
   };
 
   getUserInfo() {
@@ -16,5 +19,7 @@ export default class UserInfo {
     console.log(data)
     this._profileName.textContent = data.titleInput;
     this._profileDescription.textContent = data.subtitleInput;
+    //this._profileAvatar.src = data.avatarInput;
+    //this._id = data.userId;
   };
 };

@@ -1,27 +1,35 @@
 export default class Card {
-  constructor(data, cardTemplateSelector, handleZoomImage) {
+  constructor(data, userId, cardTemplateSelector, handleZoomImage, { handleLikeClick, handleDeleteCard }) {
     this._name = data.name;
     this._link = data.link;
+    //this._id = data._id;
+    this._ownerId = data.owner._id;
+    this._cardId = data._id;
+    this._userId = userId;
+    this._likes = data.likes;
     this._cardsTemplate = document.querySelector(cardTemplateSelector).content;
     this._handleZoomImage = handleZoomImage;
+    this._handleLikeClick = handleLikeClick;
+    this._handleDeleteCard = handleDeleteCard;
+    this._addedCard = null;
+
   }
 
-  _handleDelete(event) {
-    const addedCard = event.target.closest('.cards__card');
-    addedCard.remove();
-  };
-
-  _changeLikesButton(event) {
-    event.target.classList.toggle('cards__likes-button_active');
-  };
 
   _setEventListeners() {
-    this._deleteButton.addEventListener('click', this._handleDelete);
-    this._likeButton.addEventListener('click', this._changeLikesButton);
+    this._deleteButton.addEventListener('click', this._handleDeleteCard);
+    this._likeButton.addEventListener('click', this._handleLikeClick);
     this._cardPic.addEventListener('click', () => {
       this._handleZoomImage(this._name, this._link)
     });
   };
+
+  Liza() {
+    console.log(this._ownerId);
+    console.log(this._userId)
+    console.log(this._cardId)
+    console.log(this._likes)
+  }
 
   constructCard() {
     this._addedCard = this._cardsTemplate.cloneNode(true);
@@ -32,7 +40,62 @@ export default class Card {
     this._cardTitle.textContent = this._name;
     this._likeButton = this._addedCard.querySelector('.cards__likes-button');
     this._deleteButton = this._addedCard.querySelector('.cards__delete-button');
+    this._counterLikes = this._addedCard.querySelector('.cards__likes-number');
+    console.log(this._counterLikes)
+    this.changeLikesView();
+    if (this._ownerId !== this._userId) {
+      this._deleteButton.style.display = 'none'
+    }
+    this.Liza()
     this._setEventListeners();
     return this._addedCard
   }
-};
+
+  //определить лайк
+
+  defineUsersLikes() {
+    return this._likes.some((like) => {
+      return like._id === this._userId
+    });
+  }
+
+  //получить айди карточки
+
+  getIdCards() {
+    return this._cardId;
+  }
+
+  //список лайков
+
+  setLikes(likesList) {
+    this._likes = likesList;
+  }
+
+  changeLikesView() {
+    this._counterLikes.textContent = this._likes.length;
+    if (this.defineUsersLikes(this._userId)) {
+      this._likeButton.classList.add('cards__likes-button_active');
+      console.log(this._userId)
+    } else {
+      this._likeButton.classList.remove('cards__likes-button_active');
+    }
+  }
+
+  cardDelete() {
+    this._addedCard.remove();
+    console.log(this._addedCard)
+  }
+}
+
+
+    //this._likeCardClick = likeCardClick
+    //this._card = null;
+
+    //this._dataOwnerId = data.owner._id; //id приходящий с сервера
+    //this._ownerId = data.ownerId;
+
+
+
+    //this._id = data._id;
+    //this._userId = userId;
+    //this._ownerId = data.owner._Id;
