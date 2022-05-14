@@ -104,6 +104,7 @@ export default class Api {
    // }).then((res) => this._addResult(res));
 
   //}
+
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: "DELETE",

@@ -173,7 +173,7 @@ popupAddOpenButtonElement.addEventListener('click', () => {
 
 
 const editHandlerProfileAvatar = (data) => {
-  console.log(data.avatarInput)
+  console.log(data)
   api.editAvatar(data.avatarInput)
     .then((data) => {
       console.log(data.avatar)
@@ -194,3 +194,10 @@ Avatar.addEventListener('click', () => {
 
 const popupAvatarValidation = new FormValidator(settings, popupFormAvatar);
 popupAvatarValidation.enableValidation()
+
+//handleFormSubmit: (data) => {
+  //profileEditPopup.renderLoading(true);
+  //api
+    //.editProfileInfo(data)
+    //.then((data) => {
+     // userInfo.setUserInfo(data);
