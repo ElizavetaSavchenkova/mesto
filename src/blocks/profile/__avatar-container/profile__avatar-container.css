@@ -1,0 +1,9 @@
+.profile__avatar-container{
+}
+
+.profile__avatar-container:hover{
+  background: url(../../../images/Vector.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 26px 26px;
+}

@@ -12,7 +12,6 @@ export default class Card {
     this._handleDeleteCard = handleDeleteCard;
   }
 
-
   _setEventListeners() {
     this._deleteButton.addEventListener('click', this._handleDeleteCard);
     this._likeButton.addEventListener('click', this._handleLikeClick);
@@ -20,13 +19,6 @@ export default class Card {
       this._handleZoomImage(this._name, this._link)
     });
   };
-
-  Liza() {
-    console.log(this._ownerId);
-    console.log(this._userId)
-    console.log(this._cardId)
-    console.log(this._likes)
-  }
 
   constructCard() {
     this._addedCard = this._cardsTemplate.querySelector('.cards__card').cloneNode(true);
@@ -43,12 +35,9 @@ export default class Card {
     if (this._ownerId !== this._userId) {
       this._deleteButton.style.display = 'none'
     }
-    this.Liza()
     this._setEventListeners();
     return this._addedCard
   }
-
-  //определить лайк
 
   defineUsersLikes() {
     return this._likes.some((like) => {
@@ -56,13 +45,9 @@ export default class Card {
     });
   }
 
-  //получить айди карточки
-
   getIdCards() {
     return this._cardId;
   }
-
-  //список лайков
 
   setLikes(likesList) {
     this._likes = likesList;
@@ -79,9 +64,8 @@ export default class Card {
   }
 
   cardDelete() {
-
     this._addedCard.remove();
-    this._addedCard = null;//this._likeCardClick = likeCardClick
+    this._addedCard = null;
   }
 }
 

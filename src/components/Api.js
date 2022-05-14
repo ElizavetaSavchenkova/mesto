@@ -12,7 +12,7 @@ export default class Api {
       if (res.ok) {
         return res.json()
       }
-      return Promise.reject('Произошла ошибка')
+      return Promise.reject('Ошибка: Произошла ошибка при получении информации о пользователе')
     });
   }
 
@@ -24,7 +24,7 @@ export default class Api {
       if (res.ok) {
         return res.json()
       }
-      return Promise.reject('Произошла ошибка')
+      return Promise.reject('Ошибка: Произошла ошибка при получении карточек с сервера')
     });
   }
 
@@ -40,19 +40,9 @@ export default class Api {
       if (res.ok) {
         return res.json()
       }
-      return Promise.reject('Произошла ошибка')
+      return Promise.reject('Ошибка: Произошла ошибка при изменении данных профиля')
     });
   }
-  //addCard(name, link) {
-  //return fetch(`${this._url}/cards`, {
-  //method: "POST",
-  //headers: this._headers,
-  //body: JSON.stringify({
-  //name,
-  // link,
-  //}),
-  //}).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
-  //}
 
   addCard(name, link) {
     console.log(name, link)
@@ -67,7 +57,7 @@ export default class Api {
       if (res.ok) {
         return res.json()
       }
-      return Promise.reject('Произошла ошибка')
+      return Promise.reject('Ошибка: Произошла ошибка при добавлении новой карточки')
     });
   }
 
@@ -80,7 +70,7 @@ export default class Api {
         if (res.ok) {
           return res.json()
         }
-        return Promise.reject('Произошла ошибка')
+        return Promise.reject('Ошибка: Произошла ошибка при постановке "Нравится"')
       });
   }
 
@@ -93,17 +83,9 @@ export default class Api {
         if (res.ok) {
           return res.json()
         }
-        return Promise.reject('Произошла ошибка')
+        return Promise.reject('Ошибка: Произошла ошибка при удалении "Нравится"')
       });
   }
-
-  //deleteCard(cardId) {
-  ////  return fetch(`${this._url}/cards/${cardId}`, {
-     // method: "DELETE",
-    //  headers: this._headers,
-   // }).then((res) => this._addResult(res));
-
-  //}
 
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
@@ -114,7 +96,7 @@ export default class Api {
         if (res.ok) {
           return res.json()
         }
-        return Promise.reject('Произошла ошибка с картинкойййййййййййй, КАК ЖЕ ТЫ МЕНЯ ДОСТАЛА')
+        return Promise.reject('Ошибка: Не удалось удалить карточку')
       });
   }
 
@@ -128,14 +110,9 @@ export default class Api {
       if (res.ok) {
         return res.json()
       }
-      return Promise.reject('Произошла ошибка с аватаром')
+      return Promise.reject('Ошибка: Произошла ошибка при изменении аватара')
     });
   }
-
-
-
-
-
 }
 
 

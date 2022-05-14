@@ -4,6 +4,8 @@
   border-radius: 50%;
   margin: 0;
   padding: 0;
+  cursor: pointer;
+  transition: opacity 1s ease-in;
 }
 
 @media screen and (max-width:767px) {
@@ -12,3 +14,6 @@
   }
 }
 
+.profile__avatar:hover{
+  opacity:.2;
+}

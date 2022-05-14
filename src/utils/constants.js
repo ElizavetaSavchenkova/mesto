@@ -2,13 +2,9 @@ export const popupEditElement = document.querySelector('.popup_type_profile');
 export const popupAddElement = document.querySelector('.popup_type_add');
 export const popupFormEditElement = popupEditElement.querySelector('.popup__info_element_edit');
 export const popupFormAddElement = popupAddElement.querySelector('.popup__info_element_add');
-
-
-
-
-
-
-
+export const Avatar = document.querySelector('.profile__avatar');
+export const popupAvatar = document.querySelector('.popup_type_avatar');
+export const popupFormAvatar = popupAvatar.querySelector('.popup__info_element_avatar');
 export const titleInput = popupFormEditElement.querySelector('.popup__form-input_name_title');
 export const subtitleInput = popupFormEditElement.querySelector('.popup__form-input_name_subtitle');
 export const headingInput = popupFormAddElement.querySelector('.popup__form-input_name_heading');
@@ -17,8 +13,6 @@ export const profileName = document.querySelector('.profile__name');
 export const profileDescription = document.querySelector('.profile__description');
 export const popupEditOpenButtonElement = document.querySelector('.profile__edit-button');
 export const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
-
-
 
 
 export const settings = {
@@ -31,11 +25,3 @@ export const settings = {
   labelSelector: '.popup__label',
   errorInput: '.popup__form-input-error',
 };
-
-//export const apiInfo = {
-  //baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-40',
-  //headers: {
-    //authorization: '',
-    //'Content-Type': 'application/json'
-    //},
-//};
