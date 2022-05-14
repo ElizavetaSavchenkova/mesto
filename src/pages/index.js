@@ -12,6 +12,14 @@ import '../pages/index.css';
 
 import Api from '../components/Api.js';
 
+//const card = document.querySelectorAll('.cards__card');
+//const cardsss = Array.from(document.querySelectorAll('.cards__card'));
+const Avatar = document.querySelector('.profile__avatar');
+
+const popupAvatar = document.querySelector('.popup_type_avatar');
+const popupFormAvatar = popupAvatar.querySelector('.popup__info-element_avatar');
+
+
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-40',
   headers: {
@@ -28,6 +36,7 @@ usersInformation.then((data) => {
   userId = data._id;
   console.log(data)
   console.log(userId)
+  console.log(Avatar)
 });
 ////////////////////////
 ////валидация
@@ -37,6 +46,11 @@ popupEditElementvalidation.enableValidation();
 
 const popupAddElementvalidation = new FormValidator(settings, popupFormAddElement);
 popupAddElementvalidation.enableValidation();
+
+//const popupAvatarValidation = new FormValidator(settings, popupFormAvatar);
+//popupAvatarValidation.enableValidation()
+
+
 /////////////////
 
 ///создать карточку///
@@ -78,8 +92,6 @@ api.getAllCards()
   .then((data) => {
     cardsList = new Section({
       items: data, renderer: (card) => {
-        //const cardElement = createCard(card);
-        //cardsList.addItem(cardElement);
         renderCards(card);
         console.log(data)
       }
@@ -116,7 +128,6 @@ function addDescriptionCardSubmitHandler(data) {
   console.log(data)
   //вызов addCard из api с датой
   api.addCard(data.headingInput, data.linkInput)
-    //console.log(data.headingInput, data.linkInput)
     .then((data) => {
       renderCards(data);
       popupAddCard.close();
@@ -125,31 +136,16 @@ function addDescriptionCardSubmitHandler(data) {
 }
 
 
+
 const popupAddCard = new PopupWithForm('.popup_type_add', addDescriptionCardSubmitHandler);
 popupAddCard.setEventListeners();
 
 const userInformation = new UserInfo({ profileNameSelector: '.profile__name', profileDescriptionSelector: '.profile__description' });
 
-
-//function deleteC(cardElement) {
-  //console.log(cardElement)
-  //api.deleteCard(cardElement.getIdCards())
-   // .then(() => {
-    //  cardDelete(cardElement);
-     // console.log(cardElement)
-     // popupDeleteCardSubmit.close();
-    //})
-   // .catch((err) => {
-   //   console.log(err);
-   // })
-//}
-
-//const popupDeleteCardSubmit = new PopupDelete('.popup_type_delete', cardDeleteHandler);
-//popupDeleteCardSubmit.setEventListeners();
 const handlerDeleteCards = (cardElement) => {
   api.deleteCard(cardElement.getIdCards())
-    .then((cardElement) => {
-      cardElement.cardDelete();
+    .then(() => {
+      cardElement.cardDelete()
       popupDeleteCardSubmit.close();
     })
     .catch((err) => {
@@ -157,9 +153,7 @@ const handlerDeleteCards = (cardElement) => {
     })
 }
 
-//const popupDeleteCardSubmit = new PopupSubmit(
- // '.popupSubmit', cardDeleteHandler
-//)
+
 const popupDeleteCardSubmit = new PopupDelete('.popup_type_delete', handlerDeleteCards);
 popupDeleteCardSubmit.setEventListeners();
 
@@ -178,21 +172,30 @@ popupAddOpenButtonElement.addEventListener('click', () => {
 });
 
 
-//popupDeleteCardSubmit.setEventListeners();
-////
 
 
-//const popupDeleteCardSubmit = new PopupDelete('.popup_type_delete', {
- // cardDeleteHandler: (id, element) => {
-  //  api.deleteCard(id)
-    //.then(() => {
-     // element.remove();
-     // element = '';
-     // popupDeleteCardSubmit.close();
-   // })
-    //.catch(err => {
-     // console.log(err);
-    //});
-  //}
-//});
-//popupDeleteCardSubmit.setEventListeners();
+const editHandlerProfileAvatar = (data) => {
+  api.editAvatar(data.avatarInput)
+    .then((data) => {
+     userInformation.setUserInfo(data.avatarInpu);
+    editProfileAvatarPopup.close();
+    })
+    .catch((err) => {
+     console.log(err)
+    });
+}
+
+const editProfileAvatarPopup = new PopupWithForm('.popup_type_avatar', editHandlerProfileAvatar);
+editProfileAvatarPopup.setEventListeners();
+
+Avatar.addEventListener('click', () => {
+  editProfileAvatarPopup.open();
+});
+
+  //editProfileAvatarPopup.resetErrors()
+  //
+//})
+
+//function openAvatar() {
+  //editProfileAvatarPopup.open();
+//}

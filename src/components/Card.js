@@ -2,7 +2,6 @@ export default class Card {
   constructor(data, userId, cardTemplateSelector, handleZoomImage, { handleLikeClick, handleDeleteCard }) {
     this._name = data.name;
     this._link = data.link;
-    //this._id = data._id;
     this._ownerId = data.owner._id;
     this._cardId = data._id;
     this._userId = userId;
@@ -11,8 +10,6 @@ export default class Card {
     this._handleZoomImage = handleZoomImage;
     this._handleLikeClick = handleLikeClick;
     this._handleDeleteCard = handleDeleteCard;
-    this._addedCard = null;
-
   }
 
 
@@ -32,7 +29,7 @@ export default class Card {
   }
 
   constructCard() {
-    this._addedCard = this._cardsTemplate.cloneNode(true);
+    this._addedCard = this._cardsTemplate.querySelector('.cards__card').cloneNode(true);
     this._cardPic = this._addedCard.querySelector('.cards__image');
     this._cardTitle = this._addedCard.querySelector('.cards__description-title');
     this._cardPic.src = this._link;
@@ -82,20 +79,9 @@ export default class Card {
   }
 
   cardDelete() {
+
     this._addedCard.remove();
-    console.log(this._addedCard)
+    this._addedCard = null;//this._likeCardClick = likeCardClick
   }
 }
 
-
-    //this._likeCardClick = likeCardClick
-    //this._card = null;
-
-    //this._dataOwnerId = data.owner._id; //id приходящий с сервера
-    //this._ownerId = data.ownerId;
-
-
-
-    //this._id = data._id;
-    //this._userId = userId;
-    //this._ownerId = data.owner._Id;

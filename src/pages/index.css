@@ -61,3 +61,7 @@
 @import url(../blocks/popup/__title/_delete/popup__title_delete.css);
 
 @import url(../blocks/popup/_type/popup__type_avatar.css);
+
+@import url(../blocks/popup/__container/_avatar/popup__container_avatar.css);
+@import url(../blocks/popup/__form-input/_name/popup__form-input_name_avatar.css);
+@import url(../blocks/popup/__info/__element/popup__info_element_avatar.css);
