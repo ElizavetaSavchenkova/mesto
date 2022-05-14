@@ -138,7 +138,7 @@ popupAddOpenButtonElement.addEventListener('click', () => {
   popupAddCard.open();
   popupAddElementvalidation.resetErrors();
 });
-//аватар
+
 const editHandlerProfileAvatar = (data) => {
   changeTextLoading(popupAvatar, true);
   api.editAvatar(data.avatarInput)

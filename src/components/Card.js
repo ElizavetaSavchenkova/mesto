@@ -30,7 +30,6 @@ export default class Card {
     this._likeButton = this._addedCard.querySelector('.cards__likes-button');
     this._deleteButton = this._addedCard.querySelector('.cards__delete-button');
     this._counterLikes = this._addedCard.querySelector('.cards__likes-number');
-    console.log(this._counterLikes)
     this.changeLikesView();
     if (this._ownerId !== this._userId) {
       this._deleteButton.style.display = 'none'

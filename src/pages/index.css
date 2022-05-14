@@ -52,16 +52,12 @@
 @import url(../blocks/popup/__form-input-error/_active/popup__form-input-error_active.css);
 @import url(../blocks/popup/__button-submit/_inactive/popup__button-submit_inactive.css);
 @import url(../blocks/popup/__label/popup__label.css);
-
 @import url(../blocks/cards/__likes-number/cards__likes-number.css);
 @import url(../blocks/cards/__section-likes/cards__section-likes.css);
-
 @import url(../blocks/popup/__info/__element/popup__info_element_delete.css);
 @import url(../blocks/popup/_type/popup_type_delete.css);
 @import url(../blocks/popup/__title/_delete/popup__title_delete.css);
-
 @import url(../blocks/popup/_type/popup__type_avatar.css);
-
 @import url(../blocks/popup/__container/_avatar/popup__container_avatar.css);
 @import url(../blocks/popup/__form-input/_name/popup__form-input_name_avatar.css);
 @import url(../blocks/popup/__info/__element/popup__info_element_avatar.css);
