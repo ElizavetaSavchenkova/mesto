@@ -1,4 +1,4 @@
-import initialCards from '../utils/initialCards.js';
+//import initialCards from '../utils/initialCards.js';
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
@@ -22,10 +22,15 @@ const api = new Api({
 
 let userId = null;
 
-const usersInformation = api.getUserInformation();
-usersInformation.then((data) => {
-  userId = data._id;
-});
+Promise.all([api.getUserInformation(), api.getAllCards()])
+  .then(([data, cards]) => {
+    userId = data._id;
+    userInformation.setUserInfo({ titleInput: data.name, subtitleInput: data.about });
+    userInformation.setAvatar(data.avatar);
+    buildCards(cards)
+  }).catch((err) => {
+    console.log(err);
+  });
 
 const popupEditElementvalidation = new FormValidator(settings, popupFormEditElement);
 popupEditElementvalidation.enableValidation();
@@ -66,15 +71,14 @@ function handleZoomImage(name, link) {
 
 let cardsList
 
-api.getAllCards()
-  .then((data) => {
-    cardsList = new Section({
-      items: data, renderer: (card) => {
-        renderCards(card);
-      }
-    }, '.cards__list');
-    cardsList.renderItems();
-  })
+const buildCards = (cards) => {
+  cardsList = new Section({
+    items: cards, renderer: (card) => {
+      renderCards(card);
+    }
+  }, '.cards__list');
+  cardsList.renderItems();
+}
 
 const popupEditProfile = new PopupWithForm('.popup_type_profile', editFormSubmitHandler);
 popupEditProfile.setEventListeners()
@@ -170,3 +174,4 @@ function changeTextLoading(popup, isLoading) {
     submitButton.textContent = 'Сохранить'
   }
 }
+

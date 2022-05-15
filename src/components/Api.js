@@ -4,28 +4,25 @@ export default class Api {
     this._headers = config.headers
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+
   getUserInformation() {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: this._headers
-    }).then((res) => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject('Ошибка: Произошла ошибка при получении информации о пользователе')
-    });
+    }).then((res) => this._checkResponse(res));
   }
 
   getAllCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: this._headers
-    }).then((res) => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject('Ошибка: Произошла ошибка при получении карточек с сервера')
-    });
+    }).then((res) => this._checkResponse(res));
   }
 
   editProfile(name, about) {
@@ -36,12 +33,7 @@ export default class Api {
         name,
         about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject('Ошибка: Произошла ошибка при изменении данных профиля')
-    });
+    }).then((res) => this._checkResponse(res));
   }
 
   addCard(name, link) {
@@ -53,51 +45,28 @@ export default class Api {
         name,
         link
       })
-    }).then((res) => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject('Ошибка: Произошла ошибка при добавлении новой карточки')
-    });
+    }).then((res) => this._checkResponse(res));
   }
 
   addNewLikes(cardId) {
     return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: 'PUT',
       headers: this._headers
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject('Ошибка: Произошла ошибка при постановке "Нравится"')
-      });
+    }).then((res) => this._checkResponse(res));
   }
 
   deleteLikes(cardId) {
     return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject('Ошибка: Произошла ошибка при удалении "Нравится"')
-      });
+    }).then((res) => this._checkResponse(res));
   }
 
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject('Ошибка: Не удалось удалить карточку')
-      });
+    }).then((res) => this._checkResponse(res));
   }
 
   editAvatar(avatar) {
@@ -106,12 +75,7 @@ export default class Api {
       headers: this._headers,
       body: JSON.stringify
         ({ avatar }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject('Ошибка: Произошла ошибка при изменении аватара')
-    });
+    }).then((res) => this._checkResponse(res));
   }
 }
 
